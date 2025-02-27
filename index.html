@@ -142,9 +142,13 @@
 
     <div class="columns is-centered has-text-centered">
       <div class="column">
-        <h2 class="title is-3">&micro;Code</h2>
+        <h2 class="title is-3">Overview</h2>
         <p style="text-align: left;">
-
+          We propose &micro;Code, a simple and scalable algorithm for multi-turn code generation using execution feedback.
+          &micro;Code follows an expert iteration framework with a local search expert via a learned verifier. 
+          &micro;Code iteratively trains two components -- a <i>learned verifier</i> to score code snippets 
+          and a <i>generator</i> to imitate the local search. 
+          This iterative process allows the generator and expert to bootstrap off each other, leading to continuous improvement.  
           </li>
       </p>
       <br>
@@ -155,14 +159,47 @@
 
     <div class="columns is-centered has-text-centered">
       <div class="column">
-        <h2 class="title is-3">Test-time Scaling with Multi-turn Best-of-N</h2>
+        <h2 class="title is-3">Multi-turn Best-of-N Search at Test-time</h2>
         <p style="text-align: left;">
-
+          At inference time, &micro;Code uses both the generator and verifier are used to improve search and code generations over successive 
+          turns with <i>multi-turn Best-of-N~(BoN)</i>.
+          The generator generates N candidate solutions at each turn which are ranked via the verifier to select the most promising solution.
+          In the figure below, we show the top 3 ranked solutions at each turn.
+          We observe that the verifier selects the better solution (in orange) at each turn. 
+          The selected solution is passed to public tests to retrieve execution feedback for the generator 
+          to improve the next code solution. 
+          Interestingly, the learned verifier gives higher scores to solution with less errors (highlighted in yellow).
           </li>
       </p>
       <br>
         <img src="./static/images/muCode_inference.gif" width="1500">
       
+      </div>
+    </div> 
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">Results</h2>
+        <p style="text-align: left;">
+          Our experiments demonstrate that all multi-turn methods performs better with the proposed multi-turn BoN approach. 
+          Moreover, our proposed method &micro;Code outperforms competing methods based on Llama-3.2-1B-Instruct and Llama-3.1-8B-Instruct models. 
+          Here, N=1 denotes generating solutions with 0 temperature. 
+          The Best-of-N (BoN) accuracy is computed with N=5 solutions where the combination of public tests and learned verifier is used for selection.
+          The best performance for each dataset and model-size is highlighted in <b>bold</b> and similar performances (within 1%) are <u>underlined</u>.
+          </li>
+      </p>
+      <br>
+        <img src="./static/images/Table1.png" width="600">
+        <br> <br>
+        <p style="text-align: left;">
+          We compare different verifiers for multi-turn BoN search at test-time.
+          The hierarchical approach of using public test and learned verifier (PT+LV) outperforms only using either public tests (PT) or the learned verifier (LV).
+          This presents the efficacy of learned verifier at differentiating between solutions that have passed public tests but fail at private tests.
+          The best performance for each dataset and model-size is highlighted in <b>bold</b> and similar performances (within 1%) are <u>underlined</u>.
+          </li>
+      </p>
+      <br>
+        <img src="./static/images/Table2.png" width="500">
       </div>
     </div> 
     
