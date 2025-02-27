@@ -8,14 +8,17 @@
   <title>Multi-Turn Code Generation Through Single Step Rewards</title>
 
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QR88D4MJ0H"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RQW73WXYW9"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
   
-    gtag('config', 'G-QR88D4MJ0H');
+    gtag('config', 'G-RQW73WXYW9');
   </script>
+  <script type="text/javascript" async 
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script> 
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
@@ -46,17 +49,17 @@
 
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://arnavkj1995.github.io/">Arnav Kumar Jain</a>,</span>
+              <a href="https://arnavkj1995.github.io/">Arnav Kumar Jain<sup>1</sup> <sup>2</sup></a>,</span>
             <span class="author-block">
-              <a href="https://gonzalogonzalezpumariega.com/">Gonzalo Gonzalez-Pumariega</a>,</span>
+              <a href="https://gonzalogonzalezpumariega.com/">Gonzalo Gonzalez-Pumariega<sup>3</sup></a>,</span>
             <span class="author-block">
-                <a href="https://www.linkedin.com/in/waynechen314/">Wayne Chen</a>,</span>
+                <a href="https://www.linkedin.com/in/waynechen314/">Wayne Chen<sup>3</sup></a>,</span>
             <span class="author-block">
-                <a href="https://rush-nlp.com/">Alexander M Rush</a>,</span>
+                <a href="https://rush-nlp.com/">Alexander M Rush<sup>3</sup></a>,</span>
                 <span class="author-block">
-                  <a href="https://wenting-zhao.github.io/">Wenting Zhao</a>,</span>
+                  <a href="https://wenting-zhao.github.io/">Wenting Zhao<sup>3</sup></a>,</span>
             <span class="author-block">
-                <a href="https://www.sanjibanchoudhury.com/">Sanjiban Choudhury</a>            
+                <a href="https://www.sanjibanchoudhury.com/">Sanjiban Choudhury<sup>3</sup></a>            
           </div>
           <div class="is-size-4">
             <font size="4.5">
@@ -130,11 +133,11 @@
           <p style="text-align: left;">
             We address the problem of code generation from multi-turn execution feedback. 
             Existing methods either generate code without feedback or use complex, hierarchical reinforcement learning to optimize multi-turn rewards.
-            We propose a simple yet scalable approach, &micro;Code, that solves multi-turn code generation using only single-step rewards.
+            We propose a simple yet scalable approach, \( \mu \texttt{Code} \), that solves multi-turn code generation using only single-step rewards.
             Our key insight is that code generation is a one-step recoverable MDP, where the correct code can be recovered from any intermediate code state in a single turn.
-            &micro;Code iteratively trains both a generator to provide  code solutions conditioned on multi-turn execution feedback and a verifier to score the newly generated code.
+            \( \mu \texttt{Code} \) iteratively trains both a generator to provide  code solutions conditioned on multi-turn execution feedback and a verifier to score the newly generated code.
             Experimental evaluations show that our approach achieves significant improvements over the state-of-the-art generator-verifier baselines. 
-            We provide analysis of the design choices of the reward models and policy, and show the efficacy of &micro;Code at utilizing the execution feedback.
+            We provide analysis of the design choices of the reward models and policy, and show the efficacy of \( \mu \texttt{Code} \) at utilizing the execution feedback.
           </p>
       </div>
     </div>
@@ -142,18 +145,17 @@
 
     <div class="columns is-centered has-text-centered">
       <div class="column">
-        <h2 class="title is-3">Overview</h2>
+        <h2 class="title is-3">\( \mu \texttt{Code} \) Overview</h2>
         <p style="text-align: left;">
-          We propose &micro;Code, a simple and scalable algorithm for multi-turn code generation using execution feedback.
-          &micro;Code follows an expert iteration framework with a local search expert via a learned verifier. 
-          &micro;Code iteratively trains two components -- a <i>learned verifier</i> to score code snippets 
+          We propose \( \mu \texttt{Code} \), a simple and scalable algorithm for multi-turn code generation using execution feedback.
+          \( \mu \texttt{Code} \) follows an expert iteration framework with a local search expert via a learned verifier. 
+          \( \mu \texttt{Code} \) iteratively trains two components -- a <i>learned verifier</i> to score code snippets 
           and a <i>generator</i> to imitate the local search. 
           This iterative process allows the generator and expert to bootstrap off each other, leading to continuous improvement.  
           </li>
       </p>
       <br>
         <img src="./static/images/muCode_train.gif" width="1500">
-      
       </div>
     </div> 
 
@@ -161,8 +163,8 @@
       <div class="column">
         <h2 class="title is-3">Multi-turn Best-of-N Search at Test-time</h2>
         <p style="text-align: left;">
-          At inference time, &micro;Code uses both the generator and verifier are used to improve search and code generations over successive 
-          turns with <i>multi-turn Best-of-N~(BoN)</i>.
+          At inference time, \( \mu \texttt{Code} \) uses both the generator and verifier are used to improve search and code generations over successive 
+          turns with <i>multi-turn Best-of-N (BoN)</i>.
           The generator generates N candidate solutions at each turn which are ranked via the verifier to select the most promising solution.
           In the figure below, we show the top 3 ranked solutions at each turn.
           We observe that the verifier selects the better solution (in orange) at each turn. 
@@ -182,7 +184,7 @@
         <h2 class="title is-3">Results</h2>
         <p style="text-align: left;">
           Our experiments demonstrate that all multi-turn methods performs better with the proposed multi-turn BoN approach. 
-          Moreover, our proposed method &micro;Code outperforms competing methods based on Llama-3.2-1B-Instruct and Llama-3.1-8B-Instruct models. 
+          Moreover, our proposed method \( \mu \texttt{Code} \) outperforms competing methods based on Llama-3.2-1B-Instruct and Llama-3.1-8B-Instruct models. 
           Here, N=1 denotes generating solutions with 0 temperature. 
           The Best-of-N (BoN) accuracy is computed with N=5 solutions where the combination of public tests and learned verifier is used for selection.
           The best performance for each dataset and model-size is highlighted in <b>bold</b> and similar performances (within 1%) are <u>underlined</u>.
