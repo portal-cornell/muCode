@@ -150,7 +150,7 @@
         <h2 class="title is-3">\( \mu \texttt{Code} \) Overview</h2>
         <p style="text-align: left;">
           \( \mu \texttt{Code} \) follows an <b>expert iteration</b> framework with a local search expert via a learned verifier. 
-          \( \mu \texttt{Code} \) iteratively trains two components- 1) a <i>learned verifier</i> to score responses 
+          \( \mu \texttt{Code} \) iteratively trains two components - 1) a <i>learned verifier</i> to score responses 
           and 2) a <i>generator</i> to produce code solutions by imitating the local search. 
           </li>
       </p>
@@ -163,10 +163,10 @@
       <div class="column">
         <h2 class="title is-3">Multi-turn Best-of-N Search at Test-time</h2>
         <p style="text-align: left;">
-          At inference time, \( \mu \texttt{Code} \) improve solutions over successive turns with <i>multi-turn Best-of-N (BoN)</i>.
-          The generator produces N candidate solutions which are ranked via the verifier (orange represnets the chosen one).
-          The retrieved solution is passed through public tests and the execution feedback is utilized to improve this solution.
-          Interestingly, the learned verifier scores higher the solutions with less errors (highlighted in yellow).
+          At inference time, \( \mu \texttt{Code} \) improves solutions over successive turns with <i>multi-turn Best-of-N (BoN)</i>.
+          The generator produces N candidate solutions which are ranked via the verifier (orange representing the chosen solution).
+          The retrieved solution is tested on public tests and the execution feedback is utilized to improve this solution.
+          Our learned verifier gives high scores to solutions with less errors (highlighted in yellow).
           </li>
       </p>
       <br>
@@ -179,30 +179,19 @@
       <div class="column">
         <h2 class="title is-3">Results</h2>
         <p style="text-align: left;">
-          Our experiments demonstrate that all multi-turn methods performs better with the proposed multi-turn BoN approach. 
+          Our experiments demonstrate that all multi-turn methods perform better with the proposed multi-turn BoN approach. 
           The Best-of-N (BoN) accuracy is computed with N=5 solutions where the combination of public tests and the learned verifier is used for selection.
           Our proposed method \( \mu \texttt{Code} \) outperforms competing methods. 
-          <!-- The best performance for each dataset and model-size is highlighted in <b>bold</b> and similar performances (within 1%) are <u>underlined</u>. -->
           </li>
       </p>
       <br>
         <img src="./static/images/Table1.png" width="600">
         <br> <br>
         <p style="text-align: left;">
-          We conduct a component wise ablation study where we <b>1) Compare different verifiers</b> (Public Test (PT) and Learned Verifier (LV)) for multi-turn BoN search at test-time</i> (left),
-          <b>2) Evaluate the importance of one-step recoverability and learned verifiers</b> for training the generator (top right),
-          <b>3) Assess scaling behaviors</b> at inference time with number of candidate generations (N) at each turn (bottom right).
-          <!-- <ol type="1" style="text-align: left;">
-          <li> Compare <b>different verifiers</b> for multi-turn BoN search at test-time</i> (left). 
-             and show that using public tests and learned verifier (PT+LV) 
-            outperforms exclusively using either the public tests (PT) or the learned verifier (LV).</li>
-          <li> Evaluate  generators at <b>incorporating execution feedback</b> where \( \mu Code \) consistently improvess performance 
-          compared to the baselines that show marginal improvements with turns.</li>
-          <li> Assess <b>scaling behaviors</b> at inference time with number of candidate generations (N ) at each turn (bottom right). 
-          We observe that the BoN performance improves with larger values of N on both datasets. 
-          The verifier learned with on-policy samples perform better than verifier learned with base model rollouts.</li>
-        </ol> -->
-          <!-- The best performance for each dataset and model-size is highlighted in <b>bold</b> and similar performances (within 1%) are <u>underlined</u>. -->
+          We conduct a component wise ablation study where we: <br>
+          1) <b> Compare different verifiers</b> (Public Test (PT) and Learned Verifier (LV)) for multi-turn BoN search at test-time</i> (left). <br>
+          2) <b> Evaluate the importance of one-step recoverability and learned verifiers</b> for training the generator (top right). <br>
+          3) <b> Assess scaling behaviors</b> at inference time with number of candidate generations (N) at each turn (bottom right).
       </p>
       <br>
         <img src="./static/images/combined_figs.jpeg" width="1000">
@@ -218,7 +207,7 @@
       <div class="column" id="Paper">
         <h2 class="title is-3">Paper</h2>
     <div class="paper-thumbnail">
-        <a href="">
+        <a href="https://arxiv.org/pdf/2502.20380">
             <img class="layered-paper-big" width="100%" src="./static/images/preview_muCode.png" alt="Paper thumbnail"/>
         </a>
     </div>
