@@ -46,6 +46,8 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">Multi-Turn Code Generation Through Single Step Rewards</h1>
+          
+          <p class="is-size-5 has-text-weight-semibold has-text-danger">ICML' 25 (Spotlight) </p>
 
           <div class="is-size-5 publication-authors">
             <span class="author-block">
@@ -82,7 +84,7 @@
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="https://arxiv.org/pdf/2502.20380"
+                <a href="https://openreview.net/pdf?id=aJeLhLcsh0"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -90,7 +92,7 @@
                   <span>Paper</span>
                 </a>
               </span>
-              <span class="link-block">
+              <!-- <span class="link-block">
                 <a href="https://arxiv.org/abs/2502.20380"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -98,7 +100,7 @@
                   </span>
                   <span>arXiv</span>
                 </a>
-              </span>
+              </span> -->
               <!-- Code Link. -->
               <span class="link-block">
                 <a href="https://github.com/portal-cornell/muCode"
@@ -121,7 +123,7 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column">
-        <h1 class="title is-3">\( \mu \texttt{Code} \) is a simple and scalable method for multi-turn code generation leveraging learned verifiers.</h1>
+        <h1 class="title is-4">\( \mu \texttt{Code} \) is a simple and scalable method for multi-turn code generation leveraging one-step recoverability and learned verifiers.</h1>
         <br>
         <img src="./static/images/key_insight.gif" width="1500">
         </div>
@@ -188,7 +190,7 @@
         <br> <br>
         <p style="text-align: left;">
           We conduct a component wise ablation study where we <b>1) Compare different verifiers</b> (Public Test (PT) and Learned Verifier (LV)) for multi-turn BoN search at test-time</i> (left),
-          <b>2) Evaluate  generators</b> at incorporating execution feedback where \( \mu Code \) consistently improvess performance (top right),
+          <b>2) Evaluate the importance of one-step recoverability and learned verifiers</b> for training the generator (top right),
           <b>3) Assess scaling behaviors</b> at inference time with number of candidate generations (N) at each turn (bottom right).
           <!-- <ol type="1" style="text-align: left;">
           <li> Compare <b>different verifiers</b> for multi-turn BoN search at test-time</i> (left). 
@@ -223,13 +225,14 @@
     <div class="paper-info">
         <h3 class="title is-4" style="text-align: center;">BibTex</h3>
         <pre style="overflow-x:hidden; text-wrap:wrap; white-space: pre-wrap;"><code>
-@article{jain2025multi,
-    title={Multi-Turn Code Generation Through Single Step Rewards},
+@inproceedings{
+    jain2025multiturn,
+    title={Multi-Turn Code Generation Through Single-Step Rewards},
     author={Arnav Kumar Jain and Gonzalo Gonzalez-Pumariega and Wayne Chen and Alexander M Rush and Wenting Zhao and Sanjiban Choudhury},
-    journal={CoRR},
-    volume={abs/2502.20380},
-    year={2025}
-}  
+    booktitle={Forty-second International Conference on Machine Learning},
+    year={2025},
+    url={https://openreview.net/forum?id=aJeLhLcsh0}
+  }
         </code></pre> 
     </div>
     </div>
